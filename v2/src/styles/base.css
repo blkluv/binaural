@@ -1,34 +1,41 @@
-/* Theme System - Base Tokens */
+/* 🌈 Theme System - Healxyz Pastel Tokens */
 :root {
-    /* Base Colors - HSL for easier manipulation */
-    --color-primary-h: 220;
-    --color-primary-s: 100%;
-    --color-primary-l: 62%;
-    --color-secondary-h: 260;
-    --color-secondary-s: 84%;
-    --color-secondary-l: 57%;
-    --color-success-h: 160;
-    --color-success-s: 95%;
-    --color-success-l: 43%;
-    --color-danger-h: 358;
-    --color-danger-s: 85%;
-    --color-danger-l: 54%;
+    /* 🎨 Brand Colors (soft + dreamy) */
+    --color-primary-h: 255;
+    --color-primary-s: 70%;
+    --color-primary-l: 72%;
 
-    /* Light Theme Defaults */
-    --light-bg: hsl(0, 0%, 100%);
-    --light-text: hsl(0, 0%, 20%);
-    --light-card-bg: hsl(210, 17%, 98%);
-    --light-card-border: hsl(210, 14%, 89%);
-    --light-control-bg: hsla(0, 0%, 100%, 0.95);
+    --color-secondary-h: 320;
+    --color-secondary-s: 65%;
+    --color-secondary-l: 75%;
 
-    /* Dark Theme Values */
-    --dark-bg: hsl(0, 0%, 10%);
-    --dark-text: hsl(0, 0%, 90%);
-    --dark-card-bg: hsl(0, 0%, 18%);
-    --dark-card-border: hsl(0, 0%, 25%);
-    --dark-control-bg: hsla(0, 0%, 10%, 0.95);
+    --color-success-h: 155;
+    --color-success-s: 60%;
+    --color-success-l: 60%;
 
-    /* Active Theme Values - Default to Light */
+    --color-warning-h: 45;
+    --color-warning-s: 90%;
+    --color-warning-l: 75%;
+
+    --color-danger-h: 0;
+    --color-danger-s: 70%;
+    --color-danger-l: 65%;
+
+    /* ☀️ Light Theme */
+    --light-bg: hsl(240, 60%, 98%);
+    --light-text: hsl(240, 20%, 25%);
+    --light-card-bg: hsl(240, 50%, 96%);
+    --light-card-border: hsl(240, 30%, 85%);
+    --light-control-bg: hsla(240, 50%, 98%, 0.9);
+
+    /* 🌙 Dark Theme */
+    --dark-bg: hsl(240, 25%, 12%);
+    --dark-text: hsl(240, 20%, 92%);
+    --dark-card-bg: hsl(240, 20%, 18%);
+    --dark-card-border: hsl(240, 15%, 28%);
+    --dark-control-bg: hsla(240, 25%, 10%, 0.9);
+
+    /* Active Theme */
     --bg: var(--light-bg);
     --text: var(--light-text);
     --card-bg: var(--light-card-bg);
@@ -39,9 +46,14 @@
     --primary: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
     --secondary: hsl(var(--color-secondary-h), var(--color-secondary-s), var(--color-secondary-l));
     --success: hsl(var(--color-success-h), var(--color-success-s), var(--color-success-l));
+    --warning: hsl(var(--color-warning-h), var(--color-warning-s), var(--color-warning-l));
     --danger: hsl(var(--color-danger-h), var(--color-danger-s), var(--color-danger-l));
 
-    /* Spacing System */
+    /* Hover states */
+    --primary-dark: hsl(var(--color-primary-h), var(--color-primary-s), 62%);
+    --success-dark: hsl(var(--color-success-h), var(--color-success-s), 50%);
+
+    /* Spacing */
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
     --space-md: 1rem;
@@ -58,17 +70,13 @@
     --transition-normal: 300ms ease;
     --transition-slow: 500ms ease;
 
-    /* Z-index Layers */
+    /* Z-index */
     --z-control-bar: 1000;
     --z-modal: 2000;
     --z-tooltip: 3000;
-
-    /* Add dark variants for hover states */
-    --primary-dark: hsl(var(--color-primary-h), var(--color-primary-s), 52%);
-    --success-dark: hsl(var(--color-success-h), var(--color-success-s), 33%);
 }
 
-/* Dark Theme */
+/* 🌙 Dark Theme Override */
 [data-theme="dark"] {
     --bg: var(--dark-bg);
     --text: var(--dark-text);
@@ -77,7 +85,7 @@
     --control-bg: var(--dark-control-bg);
 }
 
-/* Base Styles */
+/* 🧼 Base Reset */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -89,12 +97,13 @@ html {
     line-height: var(--line-height-base);
 }
 
+/* 🌤 Body (dreamy gradient background) */
 body {
     font-family: var(--font-family);
-    background-color: var(--bg);
+    background: radial-gradient(circle at top, #f6f0ff, #eaf6ff);
     color: var(--text);
     transition:
-        background-color var(--transition-normal),
+        background var(--transition-normal),
         color var(--transition-normal);
     margin: 0;
     padding: 0;
@@ -103,7 +112,7 @@ body {
     flex-direction: column;
 }
 
-/* Layout */
+/* 📦 Layout */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -111,7 +120,7 @@ body {
     padding: var(--space-md);
 }
 
-/* Utility Classes */
+/* 👻 Utility */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -124,21 +133,24 @@ body {
     border: 0;
 }
 
-/* Main Content Area */
+/* 📄 Main Content */
 .main-content {
     flex: 1;
     padding: var(--space-xl) 0;
-    margin-bottom: 100px; /* Space for control bar */
+    margin-bottom: 100px;
 }
 
-/* Legacy Banner */
-
+/* 🚨 Legacy Banner (soft gradient instead of flat color) */
 .legacy-version-banner {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: var(--primary);
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
     color: white;
     padding: 8px 16px;
     text-align: center;
@@ -146,6 +158,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 .legacy-version-banner a {
